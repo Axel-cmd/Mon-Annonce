@@ -10,6 +10,7 @@ import RequireAuth from './components/RequireAuth';
 import ResetPassword from './pages/ResetPassword';
 import AddProduct from './pages/AddProduct'
 import Landing from './pages/Landing';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   return (
@@ -25,12 +26,12 @@ function App() {
             <Route path='login' element={<Login />} />
             <Route path='register' element={<Register />}  />
             <Route path='searchProduct' element={<SearchProduct />} />
+            <Route path='productDetail' element={<ProductDetail />} />
 
             {/* routes protégés */}
             <Route path='myProfil' element={<RequireAuth> <MyProfil /></RequireAuth>} />
             <Route path='resetPassword' element={<RequireAuth><ResetPassword /></RequireAuth>} />
             <Route path='addProduct' element={<RequireAuth><AddProduct /></RequireAuth>} />
-
 
           </Route>
 
