@@ -1,10 +1,11 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import FormInput from "../components/FormInput";
 
 
-const UserForm = ({ action, onSubmit }) => {
+const UserForm = ({ action, onSubmit, defaultValue }) => {
 
     const [validated, setValidated] = useState(false);
 
@@ -45,6 +46,13 @@ const UserForm = ({ action, onSubmit }) => {
 
         setValidated(true)
     }
+
+    useEffect(() => {
+        // modifier la valeur des state par défaut 
+
+
+        
+    }, defaultValue)
 
     return (
         <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
