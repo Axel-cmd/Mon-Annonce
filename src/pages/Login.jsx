@@ -20,10 +20,11 @@ const Login = () => {
 
         if(form.checkValidity() == false){
             event.stopPropagation();
+        }else {
+            login({email, password})
+                .then(result => navigate('/myProfil') )
         }
         
-        login({email, password})
-            .then(result => navigate('/myProfil') )
 
         setValidated(true)
     }
@@ -36,7 +37,7 @@ const Login = () => {
             
                 <FormInput label="Adresse mail" type="email" placeholder="Email" value={email} onChange={setEmail} error="Entrez une adresse mail valide" />
                 <FormInput label="Mot de passe" type="password" placeholder="Mot de passe" value={password} onChange={setPassword} error="Entrez votre mot de passe" />
-                
+
                 <Button type="submit">Connexion</Button>
                 <Button onClick={() => navigate('/register')} >Créer un compte</Button>
             </Form>

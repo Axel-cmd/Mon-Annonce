@@ -1,8 +1,17 @@
-
+import UserForm from "../form/UserForm";
 
 const Register = () => {
 
-    return <h1>Register</h1>
+    const handleOnSubmit = (data) => {
+        console.log(data)
+    }   
+
+    return (
+        <>
+            <h1>Register</h1>
+            <UserForm onSubmit={handleOnSubmit} action='Créer le compte'/>
+        </>    
+    )
 }
 
 export default Register;

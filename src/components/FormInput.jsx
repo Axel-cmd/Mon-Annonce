@@ -1,14 +1,14 @@
 import React from "react";
 import { Form } from 'react-bootstrap';
 
-const FormInput = ({ label, type, value, onChange, error, placeholder }) => {
+const FormInput = ({ label, type, value, onChange, error, placeholder, as, md }) => {
 
     const handleOnChange = (e) => {
         onChange(e.target.value);
     }
 
     return (
-        <Form.Group hasValidation>
+        <Form.Group hasValidation {...as ? as={as} : null} {...md ? md={md} : null} >
             <Form.Label>{label}</Form.Label>
             <Form.Control
                 required
