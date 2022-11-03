@@ -15,31 +15,32 @@ import ProductDetail from './pages/ProductDetail';
 function App() {
   return (
     <AuthProvider>
+      <Container fluid>
 
-      <BrowserRouter>
-        <Routes>
+        <BrowserRouter>
+          <Routes>
 
-          <Route path='/' >
+            <Route path='/' >
 
-            {/* routes non protégés */}
-            <Route index element={<Landing />} />
-            <Route path='login' element={<Login />} />
-            <Route path='register' element={<Register />}  />
-            <Route path='searchProduct' element={<SearchProduct />} />
-            <Route path='productDetail' element={<ProductDetail />} />
+              {/* routes non protégés */}
+              <Route index element={<Landing />} />
+              <Route path='login' element={<Login />} />
+              <Route path='register' element={<Register />}  />
+              <Route path='searchProduct' element={<SearchProduct />} />
+              <Route path='productDetail' element={<ProductDetail />} />
 
-            {/* routes protégés */}
-            <Route path='myProfil' element={<RequireAuth> <MyProfil /></RequireAuth>} />
-            <Route path='resetPassword' element={<RequireAuth><ResetPassword /></RequireAuth>} />
-            <Route path='addProduct' element={<RequireAuth><AddProduct /></RequireAuth>} />
+              {/* routes protégés */}
+              <Route path='myProfil' element={<RequireAuth> <MyProfil /></RequireAuth>} />
+              <Route path='resetPassword' element={<RequireAuth><ResetPassword /></RequireAuth>} />
+              <Route path='addProduct' element={<RequireAuth><AddProduct /></RequireAuth>} />
 
-          </Route>
+            </Route>
 
 
-        </Routes>
-      </BrowserRouter>
-      <Container>
+          </Routes>
+        </BrowserRouter>
         <Outlet />
+
       </Container>
     </AuthProvider>
   );

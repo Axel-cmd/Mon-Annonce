@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react"
+import request from "../utils/request.util";
 
 const AuthContext = React.createContext(null)
 
@@ -7,8 +8,21 @@ export const AuthProvider = ({ children }) => {
     const [token, setToken] = useState(null);
     const [user, setUser] = useState(null);
 
-    const login = () => {
-
+    const login = ({ email, password}) => {
+        return new Promise( (resolve, reject) => {
+            const data = {
+                email,
+                password 
+            }
+            request.post('/login', data)
+                .then(res => {
+                    const newToken = res.data.token.token;
+                    setToken(newToken);
+                    localStorage.setItem("token", newToken);
+                    resolve();
+                })
+                .catch(err => reject(err))
+        })
     }
 
     const logout = () => {
