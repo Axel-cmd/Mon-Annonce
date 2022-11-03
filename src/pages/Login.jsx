@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import FormInput from "../components/FormInput";
 import { useAuth } from "../contexts/auth.context";
 
 
@@ -32,28 +33,10 @@ const Login = () => {
         <>
             <h1>Login</h1>
             <Form noValidate validated={validated} onSubmit={handleOnSubmit} >
-                <Form.Group hasValidation>
-                    <Form.Label>Adresse mail</Form.Label>
-                    <Form.Control
-                        required
-                        type="email"
-                        placeholder="mail"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid" >Entrez une adresse mail valide</Form.Control.Feedback>
-                </Form.Group>
-                <Form.Group hasValidation>
-                    <Form.Label>Mot de passe</Form.Label>
-                    <Form.Control
-                        required
-                        type="password"
-                        placeholder="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid" >Entrez votre mot de passe</Form.Control.Feedback>
-                </Form.Group>
+            
+                <FormInput label="Adresse mail" type="email" placeholder="Email" value={email} onChange={setEmail} error="Entrez une adresse mail valide" />
+                <FormInput label="Mot de passe" type="password" placeholder="Mot de passe" value={password} onChange={setPassword} error="Entrez votre mot de passe" />
+                
                 <Button type="submit">Connexion</Button>
                 <Button onClick={() => navigate('/register')} >Créer un compte</Button>
             </Form>
