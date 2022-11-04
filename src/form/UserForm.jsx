@@ -26,7 +26,7 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
 
         const form = event.currentTarget;
 
-        if(form.checkValidity() == false){
+        if(form.checkValidity() === false){
             event.stopPropagation();
         }else {
             // envoyer les données du formulaire dans la callback passé en props 
@@ -52,7 +52,7 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
 
 
         
-    }, defaultValue)
+    }, [defaultValue])
 
     return (
         <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
