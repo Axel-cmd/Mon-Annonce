@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import request from "../utils/request.util";
+import { userLogin } from "../api/user";
 
 const AuthContext = React.createContext(null)
 
@@ -14,11 +14,10 @@ export const AuthProvider = ({ children }) => {
                 email,
                 password 
             }
-            request.post('/login', data)
+            userLogin(data)
                 .then(res => {
-                    const newToken = res.data.token.token;
-                    setToken(newToken);
-                    localStorage.setItem("token", newToken);
+                    setToken(res);
+                    localStorage.setItem("token", res);
                     resolve();
                 })
                 .catch(err => reject(err))

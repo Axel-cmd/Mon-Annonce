@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import FormInput from "../components/FormInput";
+import FormInputFile from "../components/FormInputFile";
 
 
 const UserForm = ({ action, onSubmit, defaultValue }) => {
@@ -19,6 +20,8 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
     const [country, setCountry] = useState('');
     const [city, setCity] = useState('');
     const [zipCode, setZipCode] = useState('');
+    const [profilPicture, setProfilPicture] = useState(null);
+    const [identificalFile, setIdentificalFile] = useState(null)
 
 
     const handleOnSubmit = (event) => {
@@ -39,7 +42,9 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
                 address,
                 country,
                 city,
-                zipCode
+                zipCode,
+                profilPicture,
+                identificalFile
             })
         }
         
@@ -75,7 +80,13 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
                 <FormInput as={Col} md="4" label="Ville" type="text" placeholder="Paris" value={city} onChange={setCity} error="Veuillez entrer votre ville" />
                 <FormInput as={Col} md="4" label="Code postal" type="text" placeholder="75000" value={zipCode} onChange={setZipCode} error="Veuillez entrer votre code postal" />
             </Row>
-            <Button type="submit">{action}</Button>
+
+            <Row className="mb-3">
+                <FormInputFile as={Col} md="6" label="Photo de profil" type="file" onChange={setProfilPicture} error="Veuillez sélectionner une photo de profil"  />
+                <FormInputFile as={Col} md="6" label="Carte d'identité" type="file" onChange={setIdentificalFile} error="Veuillez insérer votre pièce d'identité"  />
+            </Row>
+
+            <Button className="mt-5" style={{width: "100%"}} type="submit">{action}</Button>
         </Form>
     )
 }
