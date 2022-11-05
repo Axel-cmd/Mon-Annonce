@@ -1,15 +1,33 @@
 import UserForm from "../form/UserForm";
 import { Button, Container, Row } from "react-bootstrap";
 import { userRegister } from "../api/user";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
 
+    const navigate = useNavigate();
+
     const handleOnSubmit = (data) => {
-        console.log(data)
-        userRegister(data)
+
+        const formData = new FormData();
+        formData.append("email", data.email);
+        formData.append("password", data.password);
+        formData.append("firstname", data.firstname);
+        formData.append("lastname", data.lastname);
+        formData.append("phone", data.phone);
+        formData.append("address", data.address);
+        formData.append("zip_code", data.zipCode);
+        formData.append("city", data.city);
+        formData.append("country", data.country);
+        formData.append("identifical_file", data.identificalFile);
+        formData.append("profile_picture", data.profilPicture);
+        
+        userRegister(formData)
             .then(res => {
                 console.log(res)
+                navigate('/login');
             })
+            .catch(err => console.log(err))
     }   
 
     return (

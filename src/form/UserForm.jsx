@@ -11,8 +11,8 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
     const [validated, setValidated] = useState(false);
 
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    const [firstname, setFirstName] = useState('');
+    const [lastname, setLastName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,8 +34,8 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
         }else {
             // envoyer les données du formulaire dans la callback passé en props 
             onSubmit({
-                firstName,
-                lastName,
+                firstname,
+                lastname,
                 phone,
                 email,
                 password,
@@ -62,8 +62,8 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
     return (
         <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
             <Row className="mb-3">
-                <FormInput as={Col} md="4" label="Prénom" value={firstName} onChange={setFirstName} error="Entrez votre prénom" type="text" placeholder="Prénom" />
-                <FormInput as={Col} md="4" label="Nom de famille" type="text" placeholder="Nom" value={lastName} onChange={setLastName} error="Veuillez entrer votre nom" />
+                <FormInput as={Col} md="4" label="Prénom" value={firstname} onChange={setFirstName} error="Entrez votre prénom" type="text" placeholder="Prénom" />
+                <FormInput as={Col} md="4" label="Nom de famille" type="text" placeholder="Nom" value={lastname} onChange={setLastName} error="Veuillez entrer votre nom" />
                 <FormInput as={Col} md="4" label="Tél." type="text" placeholder="06 00 00 00 00" value={phone} onChange={setPhone} error="Veuillez entrer votre numéro de téléphone" />
             </Row>
             <Row className="mb-3">
