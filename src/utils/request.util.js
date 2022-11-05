@@ -7,4 +7,11 @@ const request = axios.create({
     }
 });
 
+export const getAuthHeader = () => {
+    return {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+}
+
+
 export default request;
