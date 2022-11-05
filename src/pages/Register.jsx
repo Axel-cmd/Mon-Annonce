@@ -41,7 +41,7 @@ const Register = () => {
                 <UserForm onSubmit={handleOnSubmit} action='Créer le compte'/>
 
             </Row>
-            <Button style={{width: "100%"}} className="mt-2" type="submit">Connexion</Button>
+            <Button style={{width: "100%"}} className="mt-2" type="submit" onClick={() => navigate('/login')} >Connexion</Button>
         </Container>    
     )
 }

@@ -27,7 +27,7 @@ export const userRegister = (data) => {
     })
 }
 
-export const getUserProfile = (id) => {
+export const getUserProfileById = (id) => {
     return new Promise((resolve, reject) => {
         request.get(`/profile/${id}`)
             .then(res => resolve(res.data))
