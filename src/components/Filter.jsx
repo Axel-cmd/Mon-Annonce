@@ -29,9 +29,9 @@ const Filter = ({ changeFilterValue }) => {
 
 
     return (
-        <div style={{display: "flex", marginTop: "2%"}}>
+        <div style={{display: "flex", marginTop: "2%", flexWrap: "wrap"}}>
             {categories.map((value, index) => (
-                <div key={index} style={{marginRight: "20px"}} >
+                <div key={index} style={{marginRight: "2%", marginBottom: "2%"}} >
                     <Button variant={`${ currentFilter === value.machine_name ? "secondary" : "outline-secondary"}`} onClick={() => handleOnClickFilter(value.machine_name)} >{value.label}</Button>
                 </div>
             ))}
