@@ -18,3 +18,10 @@ export const getOffersCategories = () => {
     })
 }
 
+export const getOfferById = (id) => {
+    return new Promise((resolve, reject) => {
+        request.get(`/offer/${id}`)
+            .then(res => resolve(res.data))
+            .catch(err => reject(err))
+    })
+}

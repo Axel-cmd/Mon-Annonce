@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useCallback} from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { format } from "timeago.js"
 
 const CardProduct = ({card}) => {
 
-    const { title, description, updated_at, price }  = card;
+    const navigate = useNavigate();
+    const { id, title, description, updated_at, price }  = card;
+
+    const handleOnClick = useCallback(() => navigate(`/product/${id}`, {replace: true}), [navigate, id])
 
 
     return (
@@ -35,7 +39,7 @@ const CardProduct = ({card}) => {
                                     {price}
                                 </Card.Text>
 
-                                <Button variant="primary" >
+                                <Button variant="primary" onClick={handleOnClick} >
                                     Détail
                                 </Button>
 
