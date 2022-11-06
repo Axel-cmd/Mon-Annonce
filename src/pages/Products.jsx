@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap'
 import { searchOffer } from '../api/offer';
 import CardProduct from '../components/CardProduct';
+import Filter from '../components/Filter';
 import Searchbar from '../components/Searchbar';
 
 const Products = () => {
@@ -12,8 +13,12 @@ const Products = () => {
 
     const [products, setProducts] = useState([]);
 
-    const handleSearchValue = (value) => {
-        setKeySearch(value);
+    const handleSearchValue = (searchValue) => {
+        setKeySearch(searchValue);
+    }
+
+    const handleFilterValue = (filter) => {
+        setCategory(filter)
     }
 
     useEffect(() => {
@@ -29,6 +34,11 @@ const Products = () => {
         <Container> 
             <h1>SearchProduct</h1>
             <Searchbar searchByValue={handleSearchValue} />
+
+
+            <Filter changeFilterValue={handleFilterValue} />
+
+
             {products.map((value, index) => (
                 <CardProduct card={value} key={index} />
             ))}

@@ -19,13 +19,13 @@ const CardProduct = ({card}) => {
                         <Row>
                             <Col md='10' >
                                 
-                                <Card.Title style={{height: "20%"}} >{title}</Card.Title>
+                                <Card.Title>{title}</Card.Title>
                                 
-                                <Card.Text style={{height: "70%"}} >
+                                <Card.Text  >
                                     {description}
                                 </Card.Text>
 
-                                <Card.Text style={{height: "10%"}}>
+                                <Card.Text >
                                     {format(updated_at)}
                                 </Card.Text>
                             </Col>
