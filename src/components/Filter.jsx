@@ -36,22 +36,26 @@ const Filter = ({ changeFilterValue }) => {
 
     return (
         <Accordion style={{ marginTop: "1%", opacity: '.8'}}>
-            <Accordion.Header >
-                <p>Filtres de recherche</p>
-            </Accordion.Header>
-            <Accordion.Body>
+            <Accordion.Item>
 
-                <div style={{display: "flex",flexWrap: "wrap"}}>
+                <Accordion.Header >
+                    <p>Filtres de recherche</p>
+                </Accordion.Header>
+                <Accordion.Body>
 
-                    {categories.map((value, index) => (
-                        <FilterItem key={index} label={value.label} handleOnClick={() => handleOnClickCategory(value)} variant={`${ currentCategories.includes(value) ? "primary" : "outline-primary"}`}/>
-                    ))}
+                    <div style={{display: "flex",flexWrap: "wrap"}}>
 
-                    <FilterItem variant="danger" label="Effacer" handleOnClick={handleClearCategories} />
+                        {categories.map((value, index) => (
+                            <FilterItem key={index} label={value.label} handleOnClick={() => handleOnClickCategory(value)} variant={`${ currentCategories.includes(value) ? "primary" : "outline-primary"}`}/>
+                        ))}
 
-                </div>
+                        <FilterItem variant="danger" label="Effacer" handleOnClick={handleClearCategories} />
 
-            </Accordion.Body>
+                    </div>
+
+                </Accordion.Body>
+            </Accordion.Item>
+
         </Accordion>
     )
 }
