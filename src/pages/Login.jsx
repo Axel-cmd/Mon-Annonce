@@ -59,9 +59,9 @@ const Login = () => {
                         <p className="mt-2 text-danger">Adresse mail ou mot de passe invalide</p>
                     )}
 
-
+                    <a href="" className="mt-3" >Mot de passe oublié</a>
                     <Button style={{width: "100%"}} className="mt-5" type="submit">Connexion</Button>
-                    <Button style={{width: "100%"}} className="mt-2" onClick={() => navigate('/register')} >Créer un compte</Button>
+                    <Button style={{width: "100%"}} className="mt-2" onClick={() => navigate('/register')} >Inscription</Button>
                 </Form>
             </Row>
             

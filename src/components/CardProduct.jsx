@@ -12,42 +12,62 @@ const CardProduct = ({card}) => {
 
 
     return (
+        <Col>
         <Card className="mt-4">
-            <Row>
-                <Col md='2' >
-                    <Card.Img style={{width: "100%"}} src="https://via.placeholder.com/150" />
-                </Col>
-                <Col style={{height: "100%"}} >
-                    <Card.Body style={{height: "100%"}} >
+            <Card.Img variant="top" src="https://via.placeholder.com/150" />
+            <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Text> <span style={{fontSize: "3rem"}}>{price}</span> €</Card.Text>
+                <Button variant="primary" onClick={handleOnClick} >Détail</Button>
+            </Card.Body>
+            <Card.Footer>
+                <small className="text-muted">Publié {format(updated_at, "fr_FR")}</small>
+            </Card.Footer>
+        </Card>
+        </Col>
+    )
+}
 
-                        <Row>
-                            <Col md='10' >
-                                
-                                <Card.Title>{title}</Card.Title>
-                                
-                                <Card.Text  >
-                                    {description}
-                                </Card.Text>
+export default CardProduct
 
-                                <Card.Text >
-                                    {format(updated_at)}
-                                </Card.Text>
-                            </Col>
+
+
+// <Card className="mt-4">
+//             <Row>
+//                 <Col md='2' >
+//                     <Card.Img style={{width: "100%"}} src="https://via.placeholder.com/150" />
+//                 </Col>
+//                 <Col style={{height: "100%"}} >
+//                     <Card.Body style={{height: "100%"}} >
+
+//                         <Row>
+//                             <Col md='10' >
+                                
+//                                 <Card.Title>{title}</Card.Title>
+                                
+//                                 <Card.Text  >
+//                                     {description}
+//                                 </Card.Text>
+
+//                                 <Card.Text >
+//                                     {format(updated_at)}
+//                                 </Card.Text>
+//                             </Col>
                             
-                            <Col>
-                                <Card.Text>
-                                    {price}
-                                </Card.Text>
+//                             <Col>
+//                                 <Card.Text>
+//                                     {price}
+//                                 </Card.Text>
 
-                                <Button variant="primary" onClick={handleOnClick} >
-                                    Détail
-                                </Button>
+//                                 <Button variant="primary" onClick={handleOnClick} >
+//                                     Détail
+//                                 </Button>
 
-                            </Col>
+//                             </Col>
 
 
 
-                        </Row>
+//                         </Row>
 
 
 
@@ -55,11 +75,7 @@ const CardProduct = ({card}) => {
                         
                        
                         
-                    </Card.Body>
-                </Col>
-            </Row>
-        </Card>
-    )
-}
-
-export default CardProduct
+//                     </Card.Body>
+//                 </Col>
+//             </Row>
+//         </Card>

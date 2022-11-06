@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import { searchOffer } from '../api/offer';
 import CardProduct from '../components/CardProduct';
 import Filter from '../components/Filter';
@@ -38,10 +38,11 @@ const Products = () => {
 
             <Filter changeFilterValue={handleFilterValue} />
 
-
-            {products.map((value, index) => (
-                <CardProduct card={value} key={index} />
-            ))}
+            <Row xs={1} md={3} className="g-4">
+                {products.map((value, index) => (
+                    <CardProduct card={value} key={index} />
+                ))}
+            </Row>
         </Container>
 
 

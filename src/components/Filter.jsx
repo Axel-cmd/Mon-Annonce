@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Accordion, Button, Stack } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 import { getOffersCategories } from "../api/offer";
 import FilterItem from "./FilterItem";
 
@@ -38,7 +38,7 @@ const Filter = ({ changeFilterValue }) => {
         <Accordion style={{ marginTop: "1%", opacity: '.8'}}>
             <Accordion.Item>
 
-                <Accordion.Header >
+                <Accordion.Header>
                     <p>Filtres de recherche</p>
                 </Accordion.Header>
                 <Accordion.Body>
