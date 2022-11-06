@@ -5,7 +5,7 @@ const RequireAuth = ({children}) => {
     const location = useLocation();
     const { token } = useAuth();
     
-    return token ? children : <Navigate to={'/'} state={{path: location.pathname}} replace />
+    return token ? children : <Navigate to={'/login'} state={{path: location.pathname}} replace />
 }
 
 export default RequireAuth;

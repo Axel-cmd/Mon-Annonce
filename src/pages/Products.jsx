@@ -9,7 +9,7 @@ import Searchbar from '../components/Searchbar';
 const Products = () => {
 
     const [keySearch, setKeySearch] = useState('');
-    const [category, setCategory] = useState('')
+    const [categories, setCategories] = useState([])
 
     const [products, setProducts] = useState([]);
 
@@ -18,16 +18,17 @@ const Products = () => {
     }
 
     const handleFilterValue = (filter) => {
-        setCategory(filter)
+        console.log(filter)
+        setCategories(filter)
     }
 
     useEffect(() => {
-        searchOffer({key: keySearch, category}) 
+        searchOffer({key: keySearch, categories}) 
             .then(res => {
                 console.log(res);
                 setProducts(res);
             })
-    }, [category, keySearch])
+    }, [categories, keySearch])
 
 
     return (

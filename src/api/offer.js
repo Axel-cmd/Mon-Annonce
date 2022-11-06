@@ -2,9 +2,20 @@ import request from "../utils/request.util";
 
 /*********** NONE PROTECTED (PUBLIC) **********/
 
-export const searchOffer = ({key= '', category= ''}) => {
+export const searchOffer = ({key= '', categories= []}) => {
     return new Promise((resolve, reject) => {
-        request.get(`/search?key=${key}&category=${category}`)
+
+    let urlCategories = "";
+
+    for(const c of categories) {
+        urlCategories= urlCategories+`${"&category="+c.machine_name}`
+    }
+
+    // `${"&category="+category}`
+
+
+// `/search?key=${key}&category=${category}`
+        request.get(`/search?key=${key}${urlCategories}`)
             .then(res => resolve(res.data))
             .catch(err => reject(err))
     })
