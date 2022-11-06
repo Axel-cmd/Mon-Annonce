@@ -18,14 +18,13 @@ const Products = () => {
     }
 
     const handleFilterValue = (filter) => {
-        console.log(filter)
         setCategories(filter)
     }
 
     useEffect(() => {
         searchOffer({key: keySearch, categories}) 
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setProducts(res);
             })
     }, [categories, keySearch])

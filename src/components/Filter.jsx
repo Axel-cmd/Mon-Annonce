@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Accordion, Button, Stack } from "react-bootstrap";
 import { getOffersCategories } from "../api/offer";
+import FilterItem from "./FilterItem";
 
 
 const Filter = ({ changeFilterValue }) => {
@@ -43,36 +44,16 @@ const Filter = ({ changeFilterValue }) => {
                 <div style={{display: "flex",flexWrap: "wrap"}}>
 
                     {categories.map((value, index) => (
-                        <div key={index} style={{marginRight: "2%", marginBottom: "2%"}} >
-                            <Button variant={`${ currentCategories.includes(value) ? "primary" : "outline-primary"}`} onClick={() => handleOnClickCategory(value)} >{value.label}</Button>
-                        </div>
+                        <FilterItem key={index} label={value.label} handleOnClick={() => handleOnClickCategory(value)} variant={`${ currentCategories.includes(value) ? "primary" : "outline-primary"}`}/>
                     ))}
-                    <div style={{marginRight: "2%", marginBottom: "2%"}} >
 
-                        <Button variant="danger" onClick={handleClearCategories} >Effacer</Button>
-
-                    </div>
+                    <FilterItem variant="danger" label="Effacer" handleOnClick={handleClearCategories} />
 
                 </div>
-                
-                
 
             </Accordion.Body>
         </Accordion>
     )
 }
-{/* <div style={{ marginTop: "2%", opacity: '.8'}}>
-            <Stack direction="horizontal" >
 
-                <p>Filtres de recherche</p>
-                <Button size="sm" variant="link" >clear</Button>
-            </Stack>
-            <div style={{display: "flex",flexWrap: "wrap"}}>
-                {categories.map((value, index) => (
-                    <div key={index} style={{marginRight: "2%", marginBottom: "2%"}} >
-                        <Button variant={`${ currentCategories.includes(value) ? "primary" : "outline-primary"}`} onClick={() => handleOnClickCategory(value)} >{value.label}</Button>
-                    </div>
-                ))}
-            </div>
-        </div> */}
 export default Filter;
