@@ -1,13 +1,13 @@
 import React, {useState} from "react";
 import { Form } from "react-bootstrap";
 
-const Searchbar = ({ filterValue }) => {
+const Searchbar = ({ searchByValue }) => {
  
     const [search, setSearch] = useState('');
 
     const handleOnSearch = (e) =>{
         setSearch(e.target.value);
-        filterValue(e.target.value.toLowerCase());
+        searchByValue(e.target.value.toLowerCase());
     }
 
     return (

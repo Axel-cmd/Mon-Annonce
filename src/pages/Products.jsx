@@ -12,7 +12,7 @@ const Products = () => {
 
     const [products, setProducts] = useState([]);
 
-    const filterValue = (value) => {
+    const handleSearchValue = (value) => {
         setKeySearch(value);
     }
 
@@ -28,7 +28,7 @@ const Products = () => {
     return (
         <Container> 
             <h1>SearchProduct</h1>
-            <Searchbar filterValue={filterValue} />
+            <Searchbar searchByValue={handleSearchValue} />
             {products.map((value, index) => (
                 <CardProduct card={value} key={index} />
             ))}
