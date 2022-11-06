@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap'
 import { searchOffer } from '../api/offer';
 import CardProduct from '../components/CardProduct';
+import Searchbar from '../components/Searchbar';
 
 const Products = () => {
 
@@ -11,6 +12,9 @@ const Products = () => {
 
     const [products, setProducts] = useState([]);
 
+    const filterValue = (value) => {
+        setKeySearch(value);
+    }
 
     useEffect(() => {
         searchOffer({key: keySearch, category}) 
@@ -24,6 +28,7 @@ const Products = () => {
     return (
         <Container> 
             <h1>SearchProduct</h1>
+            <Searchbar filterValue={filterValue} />
             {products.map((value, index) => (
                 <CardProduct card={value} key={index} />
             ))}

@@ -1,10 +1,10 @@
 import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
+import { Card, Row, Col, Button } from "react-bootstrap";
 import { format } from "timeago.js"
 
 const CardProduct = ({card}) => {
 
-    const { title, description, updated_at}  = card;
+    const { title, description, updated_at, price }  = card;
 
 
     return (
@@ -15,13 +15,42 @@ const CardProduct = ({card}) => {
                 </Col>
                 <Col style={{height: "100%"}} >
                     <Card.Body style={{height: "100%"}} >
-                        <Card.Title style={{textTransform: ""}} >{title}</Card.Title>
-                        <Card.Text>
-                            {description}
-                        </Card.Text>
-                        <Card.Text>
-                        {format(updated_at)}
-                        </Card.Text>
+
+                        <Row>
+                            <Col md='10' >
+                                
+                                <Card.Title style={{height: "20%"}} >{title}</Card.Title>
+                                
+                                <Card.Text style={{height: "70%"}} >
+                                    {description}
+                                </Card.Text>
+
+                                <Card.Text style={{height: "10%"}}>
+                                    {format(updated_at)}
+                                </Card.Text>
+                            </Col>
+                            
+                            <Col>
+                                <Card.Text>
+                                    {price}
+                                </Card.Text>
+
+                                <Button variant="primary" >
+                                    Détail
+                                </Button>
+
+                            </Col>
+
+
+
+                        </Row>
+
+
+
+
+                        
+                       
+                        
                     </Card.Body>
                 </Col>
             </Row>
