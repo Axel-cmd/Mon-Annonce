@@ -39,7 +39,7 @@ const Filter = ({ changeFilterValue }) => {
             <Accordion.Item>
 
                 <Accordion.Header>
-                    <p>Filtres de recherche</p>
+                    <p>Filtres de recherche avancée</p>
                 </Accordion.Header>
                 <Accordion.Body>
 

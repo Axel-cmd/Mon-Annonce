@@ -22,7 +22,7 @@ const Products = () => {
     }
 
     useEffect(() => {
-        searchOffer({key: keySearch, categories}) 
+        searchOffer({key: keySearch, categories})
             .then(res => {
                 // console.log(res);
                 setProducts(res);
@@ -34,7 +34,6 @@ const Products = () => {
         <Container> 
             <h1>SearchProduct</h1>
             <Searchbar searchByValue={handleSearchValue} />
-
 
             <Filter changeFilterValue={handleFilterValue} />
 

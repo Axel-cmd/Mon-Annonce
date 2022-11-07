@@ -1,25 +1,79 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getOfferById } from "../api/offer";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { getOfferById, getUploadedFile } from "../api/offer";
+import { Container, Button, Image, Row, Col, Stack, Card } from "react-bootstrap";
+import { useCallback } from "react";
 
 
 const ProductDetail = () => {
 
+    const navigate = useNavigate();
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const [productImg, setProductImg] = useState(null)
 
     useEffect(() => {
         getOfferById(id)
             .then(res => {
                 console.log(res);
                 setProduct(res);
+
+                
+
             })
             .catch(err => console.log(err))
     }, [id])
 
+    useEffect(() => {
+        if(!product) return;
+        getUploadedFile(product.productPicture)
+        .then(res => {
+            console.log(res)
+        })
+    }, [product])
+
+    const handleGoBack = useCallback(() => navigate(-1))
+
     return (
-        <p>{product ? product.title : ""}</p>
+        <Container className="mt-5">
+
+
+            <Button variant="secondary" onClick={() => navigate(-1)}>Retour</Button>
+
+            <Image src={productImg ?? "https://via.placeholder.com/150"} className="mt-3" style={{width: "100%", height: "200px", objectFit: "cover"}}/>
+
+            <h2 className="mt-3" style={{width: "100%", textAlign: "center"}}>{product ? product.title : ""}</h2>
+
+            <Row>
+
+                <Col md="10" >
+                    <p>{product ? product.description : ""}</p>
+                    <p><span style={{fontSize: "3rem"}} >{product ? product.price : ""}</span>€</p>
+                
+                </Col>
+                <Col>
+                    {product && (
+                        <Card style={{textAlign: "center"}} >
+                            <Card.Body>
+
+                                <div style={{width: "100%"}} className="mb-3" >
+                                    <Image roundedCircle="true" style={{width: "50px", height: "50px"}} src="https://via.placeholder.com/150" />
+                                </div>
+
+                                <Card.Title className="mb-5" >{product.Author.lastname}<br /> {product.Author.firstname}</Card.Title>
+
+                                {/* direction vers le profil public de l'utilisateur  */}
+                                <Button variant="primary">Voir le profil</Button>
+
+                            </Card.Body>
+                        </Card>
+                    )}
+                </Col>
+
+            </Row>
+
+
+        </Container>
     )
 }
 
