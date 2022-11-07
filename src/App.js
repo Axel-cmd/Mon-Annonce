@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <AuthProvider>
-      <Container fluid>
+    <Container fluid>
 
         <BrowserRouter>
           <Routes>
@@ -41,8 +41,8 @@ function App() {
           </Routes>
         </BrowserRouter>
         <Outlet />
-      <Footer/>
       </Container>
+      <Footer/>
     </AuthProvider>
   );
 }
