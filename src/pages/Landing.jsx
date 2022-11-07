@@ -1,8 +1,14 @@
+import { Fragment } from "react";
 
 
 const Landing = () => {
+    const {loading } = useSelector
 
-    return <h1>Landing</h1>
+    return (
+        <Fragment>
+
+        </Fragment>
+    )
 }
 
 export default Landing;
