@@ -11,6 +11,7 @@ import ResetPassword from './pages/ResetPassword';
 import AddProduct from './pages/AddProduct'
 import Landing from './pages/Landing';
 import ProductDetail from './pages/ProductDetail';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
           </Routes>
         </BrowserRouter>
         <Outlet />
-
+      <Footer/>
       </Container>
     </AuthProvider>
   );
