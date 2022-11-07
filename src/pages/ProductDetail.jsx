@@ -27,9 +27,9 @@ const ProductDetail = () => {
     useEffect(() => {
         if(!product) return;
         getUploadedFile(product.productPicture)
-        .then(res => {
-            console.log(res)
-        })
+            .then(res => {
+                console.log(res)
+            })
     }, [product])
 
     const handleGoBack = useCallback(() => navigate(-1))
@@ -47,8 +47,8 @@ const ProductDetail = () => {
             <Row>
 
                 <Col md="10" >
-                    <p>{product ? product.description : ""}</p>
-                    <p><span style={{fontSize: "3rem"}} >{product ? product.price : ""}</span>€</p>
+                    <p className="mt-4" >{product ? product.description : ""}</p>
+                    <p style={{width: "100%", textAlign: "right"}} ><span style={{fontSize: "3rem"}} >{product ? product.price : ""}</span>€</p>
                 
                 </Col>
                 <Col>
