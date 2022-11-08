@@ -32,15 +32,20 @@ const Products = () => {
 
     return (
         <Container> 
-            <h1>SearchProduct</h1>
+            {/* <h1>SearchProduct</h1> */}
             <Searchbar searchByValue={handleSearchValue} />
 
             <Filter changeFilterValue={handleFilterValue} />
 
             <Row xs={1} md={2} lg={3} className="g-4">
-                {products.map((value, index) => (
-                    <CardProduct card={value} key={index} />
-                ))}
+
+                { products.length ? 
+                    products.map((value, index) => (
+                        <CardProduct card={value} key={index} />
+                    ))
+                    :
+                    <p style={{width: "100%", textAlign: "center"}} className='mt-5' >Aucun produit correspondant à "{keySearch}"</p>        
+                }
             </Row>
         </Container>
 

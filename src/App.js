@@ -12,13 +12,15 @@ import AddProduct from './pages/AddProduct'
 import Landing from './pages/Landing';
 import ProductDetail from './pages/ProductDetail';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
   return (
     <AuthProvider>
-    <Container fluid>
+      <Container fluid className='mt-5 pt-5' style={{minHeight: "85vh"}} >
 
         <BrowserRouter>
+          <Header />
           <Routes>
 
             <Route path='/' >
@@ -40,6 +42,7 @@ function App() {
 
           </Routes>
         </BrowserRouter>
+
         <Outlet />
       </Container>
       <Footer/>
