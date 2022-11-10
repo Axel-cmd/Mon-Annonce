@@ -45,7 +45,7 @@ const Login = () => {
     return (
         <Container>
 
-            <Row className="mt-5 text-center">
+            <Row className="mt-3 text-center">
                 <h1>Login</h1>
             </Row>
 
