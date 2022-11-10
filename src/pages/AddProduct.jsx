@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
         formData.append("description", data.description);
         formData.append("price", data.price);
         formData.append("category", data.category);
-        formData.append("status", data.status);
+        formData.append("status_id", data.status_id);
         formData.append("productPicture", data.productPicture);
        
         addOffer(formData)
