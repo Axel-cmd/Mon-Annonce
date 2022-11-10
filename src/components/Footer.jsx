@@ -1,4 +1,5 @@
 import React from 'react';
+import NavItem from "./NavItem";
 import {
   MDBFooter,
   MDBContainer,
@@ -13,33 +14,11 @@ export default function App() {
   return (
     <MDBFooter className='text-center' color='white' bgColor='dark'>
       <MDBContainer className='p-4'>
-        <section className=''>
-          <form action=''>
-            <MDBRow className='d-flex justify-content-center'>
-              <MDBCol size="auto">
-                <p className='pt-2'>
-                  <strong>Sign up for our newsletter</strong>
-                </p>
-              </MDBCol>
 
-              <MDBCol md='5' start>
-                <MDBInput contrast type='email' label='Email address' className='mb-4' />
-              </MDBCol>
-
-              <MDBCol size="auto">
-                <MDBBtn outline color='light' type='submit' className='mb-4'>
-                  Subscribe
-                </MDBBtn>
-              </MDBCol>
-            </MDBRow>
-          </form>
-        </section>
 
         <section className='mb-4'>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum repellat quaerat
-            voluptatibus placeat nam, commodi optio pariatur est quia magnam eum harum corrupti dicta, aliquam
-            sequi voluptate quas.
+            Mon-Annonce 
           </p>
         </section>
 
@@ -103,9 +82,9 @@ export default function App() {
       </MDBContainer>
 
       <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-        © 2020 Copyright:
-        <a className='text-white' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+        © 2022 Copyright:
+        <a className='text-white' href='http://localhost:3000/'>
+          Mon-Annonce
         </a>
       </div>
     </MDBFooter>
