@@ -1,4 +1,4 @@
-import request from "../utils/request.util";
+import request, { getAuthHeader } from "../utils/request.util";
 
 /*********** NONE PROTECTED (PUBLIC) **********/
 
@@ -51,6 +51,7 @@ export const getPublicOfferByUserId = (id) => {
 export const addOffer = (data) => {
     return new Promise((resolve, reject) => {
         const headers = {
+            ...getAuthHeader(),
             "Content-Type": "multipart/form-data"
         }
         request.post('/admin_offer/', data, {headers})

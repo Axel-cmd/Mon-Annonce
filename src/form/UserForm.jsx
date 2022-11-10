@@ -67,6 +67,7 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
 
     useEffect(() => {
         // modifier la valeur des state par défaut 
+        if (defaultValue){
         console.log(defaultValue);
         setAddress(defaultValue.address);
         setCity(defaultValue.city);
@@ -76,6 +77,7 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
         setLastName(defaultValue.lastname);
         setPhone(defaultValue.phone);
         setZipCode(defaultValue.zip_code)
+        }
 
     }, [defaultValue])
 

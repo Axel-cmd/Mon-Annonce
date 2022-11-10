@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
     const handleOnSubmit = (data) => {
 
+        console.log(data);
         const formData = new FormData();
         formData.append("title", data.title);
         formData.append("description", data.description);
@@ -34,7 +35,7 @@ import { useNavigate } from "react-router-dom";
 
             </Row>
             <Row className="mt-5">
-                <ProductForm onSubmit={handleOnSubmit} action='Create product'/>
+                <ProductForm onSubmit={handleOnSubmit} create='Create Product'/>
 
             </Row>
         </Container>    

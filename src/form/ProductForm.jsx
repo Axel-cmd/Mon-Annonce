@@ -17,14 +17,15 @@ import FormInputFile from "../components/FormInputFile";
     const [productPicture, setProductPicture] = useState('');
 
     useEffect(() => {
-        console.log(product);
-        setTitle(product.title);
-        setDescription(product.description);
-        setPrice(product.price);
-        setCategory(product.category);
-        setStatus(product.status);
-        setProductPicture(product.productPicture);
-        
+        if (product){
+            // console.log(product);
+            setTitle(product.title);
+            setDescription(product.description);
+            setPrice(product.price);
+            setCategory(product.category);
+            setStatus(product.status);
+            setProductPicture(product.productPicture);
+        }
     }, [product]);
 
     const handleOnSubmit = (event) => {
@@ -51,13 +52,8 @@ import FormInputFile from "../components/FormInputFile";
     }
 
     return (
-        <Form noValidate validated={validated} onSubmit={handleOnSubmit}>
+        
         <Container>
-
-            <Row className="mt-3 text-center">
-                <h1>Add Product</h1>
-            </Row>
-
             <Row className="mt-5 ">
                 <Form onSubmit={handleOnSubmit} >
                 
@@ -66,26 +62,25 @@ import FormInputFile from "../components/FormInputFile";
                     <FormInput label="Price" type="price" placeholder="Price" value={price} onChange={setPrice} error="Write down the price" />
                     <label htmlFor="category">Category</label>
                     <Form.Select aria-label="Select Category">
-                        <option>Category</option>
-                        <option value="1">Sport</option>
-                        <option value="2">Home & Decoration</option>
-                        <option value="3">Fashion</option>
+ 
+                        <option value="REAL_ESTATE">Immobilier</option>
+                        <option value="IT">High-tech</option>
+                        <option value="HOME_FURNISHINGS">Mobilier de maison</option>
                     </Form.Select>
                     <label htmlFor="status">Status</label>
                     <Form.Select aria-label="Select Status">
-                        <option>Status</option>
-                        <option value="1">Good</option>
-                        <option value="2">Very good</option>
-                        <option value="3">New</option>
+   
+                        <option value="1">Brouillon</option>
+                        <option value="2">Publié</option>
+                        <option value="3">Supprimé</option>
                     </Form.Select>
                     <FormInputFile label="Product Picture" type="file" placeholder="productPicture" value={productPicture} onChange={setProductPicture} error="" />
 
-                    <Button style={{width: "100%"}} className="mt-5" type="submit">{create}</Button>
+                    <Button className="mt-5" style={{width: "100%"}} type="submit">{create}</Button>
                 </Form>
             </Row>
             
         </Container>
-        </Form>
       
     )
 }
