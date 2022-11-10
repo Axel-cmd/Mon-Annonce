@@ -18,13 +18,13 @@ import Profil from './pages/Profil';
 function App() {
   return (
     <AuthProvider>
-      <Container fluid className='' style={{minHeight: "90vh", padding: "0px"}} >
+      <Container fluid className='' style={{minHeight: "95vh", padding: "0px"}} >
       
         <BrowserRouter>
           <Header />
           <Routes>
 
-            <Route path='/' >
+            <Route path='/'>
 
               {/* routes non protégés */}
               <Route index element={<Landing />} />

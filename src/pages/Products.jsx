@@ -31,7 +31,7 @@ const Products = () => {
 
 
     return (
-        <Container> 
+        <Container className='mt-5 pt-3 mb-3'> 
             {/* <h1>SearchProduct</h1> */}
             <Searchbar searchByValue={handleSearchValue} />
 
