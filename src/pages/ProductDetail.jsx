@@ -63,7 +63,7 @@ const ProductDetail = () => {
                                 <Card.Title className="mb-5" >{product.Author.lastname}<br /> {product.Author.firstname}</Card.Title>
 
                                 {/* direction vers le profil public de l'utilisateur  */}
-                                <Button variant="primary" >Voir le profil</Button>
+                                <Button variant="primary" onClick={() => navigate(`/profil/${product.Author.id}`)} >Voir le profil</Button>
 
                             </Card.Body>
                         </Card>
