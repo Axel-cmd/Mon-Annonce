@@ -34,4 +34,5 @@ code {
 }
 .card-body{
   background-color: #ffffff82;
+  border-radius: 20px;
 }
