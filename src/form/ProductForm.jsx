@@ -8,12 +8,12 @@ import FormInputFile from "../components/FormInputFile";
  const AddProduct = ({ product, create, onSubmit }) => {
 
     // const navigate = useNavigate();
-    const [validated, setValidated] = useState(false);
+    const [setValidated] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
-    const [status, setStatus] = useState('');
+    const [status_id, setStatus] = useState('');
     const [productPicture, setProductPicture] = useState('');
 
     useEffect(() => {
@@ -23,7 +23,7 @@ import FormInputFile from "../components/FormInputFile";
             setDescription(product.description);
             setPrice(product.price);
             setCategory(product.category);
-            setStatus(product.status);
+            setStatus(product.status_id);
             setProductPicture(product.productPicture);
         }
     }, [product]);
@@ -42,7 +42,7 @@ import FormInputFile from "../components/FormInputFile";
                 description,
                 price,
                 category,
-                status,
+                status_id,
                 productPicture
             })
         }
@@ -61,7 +61,7 @@ import FormInputFile from "../components/FormInputFile";
                     <FormInput label="Description" type="description" placeholder="Description" value={description} onChange={setDescription} error="Write down a description" />
                     <FormInput label="Price" type="price" placeholder="Price" value={price} onChange={setPrice} error="Write down the price" />
                     <label htmlFor="category">Category</label>
-                    <Form.Select aria-label="Select Category">
+                    <Form.Select aria-label="category" onChange={setCategory}>
                         <option value="REAL_ESTATE">Immobilier</option>
                         <option value="IT">High-tech</option>
                         <option value="AUTOMATION">Domotique</option>
@@ -70,8 +70,8 @@ import FormInputFile from "../components/FormInputFile";
                         <option value="CLOTHES">Vêtements</option>
                         <option value="OTHERS">Autres</option>
                     </Form.Select>
-                    <label htmlFor="status">Status</label>
-                    <Form.Select aria-label="Select Status">
+                    <label htmlFor="status_id">status</label>
+                    <Form.Select aria-label="Select Status" onChange={setStatus}>
                         <option value="1">Brouillon</option>
                         <option value="2">Publié</option>
                         <option value="3">Supprimé</option>

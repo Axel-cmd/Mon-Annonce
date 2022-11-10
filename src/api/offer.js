@@ -50,10 +50,11 @@ export const getPublicOfferByUserId = (id) => {
 
 export const addOffer = (data) => {
     return new Promise((resolve, reject) => {
-        const headers = {
-            ...getAuthHeader(),
-            "Content-Type": "multipart/form-data"
-        }
+        // const headers = {
+        //     ...getAuthHeader(),
+        //     "Content-Type": "multipart/form-data"
+        // }
+        const headers = getAuthHeader();
         request.post('/admin_offer/', data, {headers})
             .then(res => {
                 resolve(res.data)
