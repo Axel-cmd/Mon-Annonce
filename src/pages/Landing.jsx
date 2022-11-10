@@ -38,11 +38,32 @@ const Landing = () => {
                         LA meilleur plateforme d'occasion est enfin la !
                         </Card.Text>
                         <Button variant="primary">Découvrir</Button>
-                        <Button style={{marginLeft: "10px"}} variant="success">Se connecter / s'inscrire</Button>{' '}
                     </Card.Body>
                 </Card>
             </Container>
         </div>
+        <h3 style={{textAlign:"center", marginTop:"25px"}}>Identifiez-vous pour une meilleure expérience</h3>
+        <Container style={{ display: 'flex', alignItems:"stretch", justifyContent: "space-evenly", flexDirection:"row", marginTop:"25px", marginBottom:"25px" }}>
+            <Card style={{ width: '25rem' }}>
+                <Card.Body>
+                    <Card.Title>Se connecter</Card.Title>
+                    <Card.Text>
+                    Connectez vouz si vous avez déja créer un compte
+                    </Card.Text>
+                    <Button style={{marginLeft: "10px"}} variant="success">Se connecter</Button>{' '}
+                </Card.Body>
+            </Card>
+            <Card style={{ width: '25rem' }}>
+                <Card.Body>
+                    <Card.Title>S'inscrire</Card.Title>
+                    <Card.Text>
+                    Créer un compte pour profitez d'une experience utilisateur maximum
+                    </Card.Text>
+                    <Button style={{marginLeft: "10px"}} variant="success">S'inscrire</Button>{' '}
+                </Card.Body>
+            </Card>
+        </Container>
+
         </>
     )
 }
