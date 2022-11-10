@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getOfferById, getUploadedFile } from "../api/offer";
 import { Container, Button, Image, Row, Col, Stack, Card, NavItem } from "react-bootstrap";
 import { useCallback } from "react";
+import ContactForm from "../form/ContactForm";
 
 
 const ProductDetail = () => {
@@ -46,7 +47,7 @@ const ProductDetail = () => {
 
             <Row>
 
-                <Col md="10" >
+                <Col md="8" sm="8" lg="10" >
                     <p className="mt-4" >{product ? product.description : ""}</p>
                     <p style={{width: "100%", textAlign: "right"}} ><span style={{fontSize: "3rem"}} >{product ? product.price : ""}</span>€</p>
                 
@@ -70,6 +71,9 @@ const ProductDetail = () => {
                     )}
                 </Col>
 
+            </Row>
+            <Row>
+                <ContactForm />
             </Row>
 
 

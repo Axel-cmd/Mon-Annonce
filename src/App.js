@@ -33,10 +33,10 @@ function App() {
               <Route path='products' element={<Products />} />
               <Route path='product/:id' element={<ProductDetail />} />
               <Route path='profil/:id' element={ <Profil />} />
+              <Route path='resetPassword' element={<ResetPassword />} />
 
               {/* routes protégés */}
               <Route path='myProfil' element={<RequireAuth> <MyProfil /></RequireAuth>} />
-              <Route path='resetPassword' element={<RequireAuth><ResetPassword /></RequireAuth>} />
               <Route path='addProduct' element={<RequireAuth><AddProduct /></RequireAuth>} />
 
             </Route>
