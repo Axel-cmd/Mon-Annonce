@@ -6,7 +6,6 @@ import {
   MDBCol,
   MDBRow,
 } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/auth.context';
 
 const Footer = () => {
