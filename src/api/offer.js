@@ -39,3 +39,11 @@ export const getUploadedFile = (filename) => {
             .catch(err => reject(err))
     })
 }
+
+export const getPublicOfferByUserId = (id) => {
+    return new Promise((resolve, reject) => {
+        request.get(`/offer/user/${id}`)
+            .then(res => resolve(res.data))
+            .catch(err => reject(err))
+    })
+}
