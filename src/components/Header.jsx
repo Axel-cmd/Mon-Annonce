@@ -1,6 +1,7 @@
 import React from "react"
 import { useEffect, useState } from "react";
 import { Container, Nav, Navbar, Image } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { getUploadedFile } from "../api/offer";
 import { useAuth } from "../contexts/auth.context";
 import NavItem from "./NavItem";
@@ -37,7 +38,9 @@ const Header = () => {
                     <NavItem url={"/products"} label="Recherche" />
                     
                 </Nav>
-                <Image roundedCircle src={token ? profil ? profil : "https://via.placeholder.com/150" : "https://via.placeholder.com/150"} style={{width: "30px", height: "30px", objectFit: "cover"}} />
+                <NavLink style={{textDecoration: "none"}} to='/myProfil'>
+                    <Image roundedCircle src={token ? profil ? profil : "https://via.placeholder.com/150" : "https://via.placeholder.com/150"} style={{width: "30px", height: "30px", objectFit: "cover"}} />
+                </NavLink>
             </Container>
         </Navbar>
         <div style={{ marginBottom:"56px"}}></div>

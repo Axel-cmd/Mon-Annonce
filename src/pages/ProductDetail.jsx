@@ -35,7 +35,7 @@ const ProductDetail = () => {
     const handleGoBack = useCallback(() => navigate(-1))
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-5 pt-3">
 
 
             <Button variant="secondary" onClick={() => navigate(-1)}>Retour</Button>
