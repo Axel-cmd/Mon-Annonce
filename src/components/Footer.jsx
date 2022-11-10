@@ -3,11 +3,8 @@ import NavItem from "./NavItem";
 import {
   MDBFooter,
   MDBContainer,
-  MDBIcon,
-  MDBInput,
   MDBCol,
   MDBRow,
-  MDBBtn
 } from 'mdb-react-ui-kit';
 
 export default function App() {
@@ -18,7 +15,7 @@ export default function App() {
 
         <section className='mb-4'>
           <p>
-            Mon-Annonce 
+            Mon annonce est un site web qui permet au particulier et au professionnel d'avoir une visibilité pour leur offre. Notre but est d'offrir une interface simpliste pour que tout le monde puisse s'y retrouver facilement.
           </p>
         </section>
 
