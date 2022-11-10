@@ -18,7 +18,7 @@ import Profil from './pages/Profil';
 function App() {
   return (
     <AuthProvider>
-      <Container fluid className='mt-5 pt-5' style={{minHeight: "90vh"}} >
+      <Container fluid className='' style={{minHeight: "90vh", padding: "0px"}} >
 
         <BrowserRouter>
           <Header />

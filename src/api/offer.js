@@ -34,7 +34,7 @@ export const getOfferById = (id) => {
 
 export const getUploadedFile = (filename) => {
     return new Promise((resolve, reject) => {
-        request.get('/uploads/'+filename)
+        request.get('/uploads/'+filename, {responseType: 'blob'})
             .then(res => resolve(res.data))
             .catch(err => reject(err))
     })

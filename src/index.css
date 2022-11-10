@@ -12,4 +12,27 @@ code {
     monospace;
 }
 
+.landing_dom{
+  position: relative;
+}
+.content_landing_card{
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  width: 70% !important;
 
+}
+.content_landing_card .card{
+  background: url(https://www.leboncoin.fr/_next/static/media/communaute.3cd81535.png);
+  background-repeat: no-repeat;
+  background-size: 52rem;
+  background-position: right;
+  background-origin: border-box;
+  background-size: contain;
+  border-radius: 20px;
+}
+.card-body{
+  background-color: #ffffff82;
+  border-radius: 20px;
+}

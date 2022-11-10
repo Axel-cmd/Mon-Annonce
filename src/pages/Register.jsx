@@ -31,8 +31,8 @@ const Register = () => {
     }   
 
     return (
-        <Container>
-            <Row className="mt-5 text-center">
+        <Container className="mt-2 mb-5">
+            <Row className=" text-center">
                 
                 <h1>Register</h1>
 
@@ -41,7 +41,7 @@ const Register = () => {
                 <UserForm onSubmit={handleOnSubmit} action='Créer le compte'/>
 
             </Row>
-            <Button style={{width: "100%"}} className="mt-2" type="submit" onClick={() => navigate('/login')} >Connexion</Button>
+            <Button style={{width: "100%"}} className="mt-2" type="submit" onClick={() => navigate('/login')} >Se connecter</Button>
         </Container>    
     )
 }
