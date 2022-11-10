@@ -15,7 +15,7 @@ const Footer = () => {
   const { token } = useAuth();
 
   return (
-    <MDBFooter className='text-center' color='white' bgColor='dark'>
+    <MDBFooter className='text-center' color='white' bgColor='primary'>
       <MDBContainer className='p-4'>
 
 
