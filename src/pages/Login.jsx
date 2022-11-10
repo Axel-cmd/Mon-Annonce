@@ -3,7 +3,6 @@ import { Form, Button, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import FormInput from "../components/FormInput";
 import { useAuth } from "../contexts/auth.context";
-import NavItem from "../components/NavItem";
 
 
 const Login = () => {
@@ -60,7 +59,7 @@ const Login = () => {
                         <p className="mt-2 text-danger">Adresse mail ou mot de passe invalide</p>
                     )}
 
-                    <NavItem url={"/ResetPassword"} className="mt-3" label="Mot de passe oublié" />
+                    <a onClick={() => navigate('/ResetPassword')} className="mt-3" >Mot de passe oublié</a>
                     <Button style={{width: "100%"}} className="mt-5" type="submit">Connexion</Button>
                     <Button style={{width: "100%"}} className="mt-2" onClick={() => navigate('/register')} >Inscription</Button>
                 </Form>
