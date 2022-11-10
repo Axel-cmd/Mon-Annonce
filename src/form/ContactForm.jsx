@@ -8,10 +8,13 @@ const ContactForm = () => {
     const [message, setMessage] = useState("");
     const [validated, setValidated] = useState(false);
 
-    const handleOnSubmit = () => {
+    const handleOnSubmit = (event) => {
         event.preventDefault();
 
         const form = event.currentTarget;
+
+        // setValidated(true)
+
 
         if(form.checkValidity() === false){
             event.stopPropagation();
@@ -19,13 +22,13 @@ const ContactForm = () => {
             // envoyer les données du formulaire dans la callback passé en props 
             
             console.log(email, message);
+            setEmail('');
+            setMessage('');
             
-            
-
         }
         
-
         setValidated(true)
+
     }
 
     return(
