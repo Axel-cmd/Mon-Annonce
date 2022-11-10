@@ -26,7 +26,9 @@ const UpdateProfil = () => {
             .then(r => {
                 console.log(r);
                 setUser(r)
+                navigate('/myProfil')
             })
+
 
     }
 
