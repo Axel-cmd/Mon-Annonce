@@ -17,7 +17,7 @@ import Header from './components/Header';
 function App() {
   return (
     <AuthProvider>
-      <Container fluid className='mt-5 pt-5' style={{minHeight: "85vh"}} >
+      <Container fluid className='mt-5 pt-5' style={{minHeight: "90vh"}} >
 
         <BrowserRouter>
           <Header />

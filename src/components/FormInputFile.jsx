@@ -11,7 +11,7 @@ const FormInputFile = ({ label, type, onChange, error, placeholder, as, md }) =>
     }
 
     return (
-        <Form.Group hasValidation {...as ? as={as} : null} {...md ? md={md} : null} >
+        <Form.Group {...as ? as={as} : null} {...md ? md={md} : null} >
             <Form.Label>{label}</Form.Label>
             <Form.Control
                 required

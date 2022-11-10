@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { userLogin } from "../api/user";
+import { getCurrentUserData, userLogin } from "../api/user";
 
 const AuthContext = React.createContext(null)
 
@@ -19,10 +19,21 @@ export const AuthProvider = ({ children }) => {
                     setToken(res);
                     localStorage.setItem("token", res);
                     resolve();
+                    getUser();
                 })
                 .catch(err => reject(err))
         })
     }
+
+    const getUser = () => {
+        getCurrentUserData()
+            .then(value => {
+                console.log(value);
+                setUser(value)
+            })
+    }
+
+
 
     const logout = () => {
 

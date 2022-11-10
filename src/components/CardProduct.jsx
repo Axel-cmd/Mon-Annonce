@@ -1,4 +1,5 @@
 import React, {useCallback} from "react";
+import { useEffect } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { format } from "timeago.js"
@@ -9,6 +10,10 @@ const CardProduct = ({card}) => {
     const { id, title, description, updated_at, price }  = card;
 
     const handleOnClick = useCallback(() => navigate(`/product/${id}`, {replace: true}), [navigate, id])
+
+    useEffect(() => {
+        console.log(card)
+    }, [])
 
 
     return (
