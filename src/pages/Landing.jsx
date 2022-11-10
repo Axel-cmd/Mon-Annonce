@@ -38,6 +38,7 @@ const Landing = () => {
                         LA meilleur plateforme d'occasion est enfin la !
                         </Card.Text>
                         <Button variant="primary">Découvrir</Button>
+                        <Button style={{marginLeft: "10px"}} variant="success">Se connecter / s'inscrire</Button>{' '}
                     </Card.Body>
                 </Card>
             </Container>
