@@ -26,7 +26,8 @@ const Header = () => {
     }, [user])
 
     return (
-        <Navbar fixed="top" bg="primary" >
+        <>
+        <Navbar fixed="top" bg="primary">
             <Container>
                 <Navbar.Brand className="text-white" >MON ANNONCE</Navbar.Brand>
                 <span style={{flexGrow: 1}} ></span>
@@ -39,6 +40,8 @@ const Header = () => {
                 <Image roundedCircle src={token ? profil ? profil : "https://via.placeholder.com/150" : "https://via.placeholder.com/150"} style={{width: "30px", height: "30px", objectFit: "cover"}} />
             </Container>
         </Navbar>
+        <div style={{ marginBottom:"56px"}}></div>
+        </>
     )
 }
 

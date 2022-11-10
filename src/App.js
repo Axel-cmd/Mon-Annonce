@@ -18,7 +18,7 @@ function App() {
   return (
     <AuthProvider>
       <Container fluid className='' style={{minHeight: "90vh", padding: "0px"}} >
-
+      
         <BrowserRouter>
           <Header />
           <Routes>
