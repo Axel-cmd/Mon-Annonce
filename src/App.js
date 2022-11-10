@@ -13,12 +13,13 @@ import Landing from './pages/Landing';
 import ProductDetail from './pages/ProductDetail';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Profil from './pages/Profil';
 
 function App() {
   return (
     <AuthProvider>
-      <Container fluid className='mt-5 pt-5' style={{minHeight: "90vh"}} >
-
+      <Container fluid className='' style={{minHeight: "90vh", padding: "0px"}} >
+      
         <BrowserRouter>
           <Header />
           <Routes>
@@ -31,6 +32,7 @@ function App() {
               <Route path='register' element={<Register />}  />
               <Route path='products' element={<Products />} />
               <Route path='product/:id' element={<ProductDetail />} />
+              <Route path='profil/:id' element={ <Profil />} />
 
               {/* routes protégés */}
               <Route path='myProfil' element={<RequireAuth> <MyProfil /></RequireAuth>} />

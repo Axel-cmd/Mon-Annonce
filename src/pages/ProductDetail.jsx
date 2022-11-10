@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getOfferById, getUploadedFile } from "../api/offer";
-import { Container, Button, Image, Row, Col, Stack, Card } from "react-bootstrap";
+import { Container, Button, Image, Row, Col, Stack, Card, NavItem } from "react-bootstrap";
 import { useCallback } from "react";
 
 
@@ -35,7 +35,7 @@ const ProductDetail = () => {
     const handleGoBack = useCallback(() => navigate(-1))
 
     return (
-        <Container className="mt-3">
+        <Container className="mt-5">
 
 
             <Button variant="secondary" onClick={() => navigate(-1)}>Retour</Button>
@@ -63,7 +63,7 @@ const ProductDetail = () => {
                                 <Card.Title className="mb-5" >{product.Author.lastname}<br /> {product.Author.firstname}</Card.Title>
 
                                 {/* direction vers le profil public de l'utilisateur  */}
-                                <Button variant="primary">Voir le profil</Button>
+                                <Button variant="primary" >Voir le profil</Button>
 
                             </Card.Body>
                         </Card>
