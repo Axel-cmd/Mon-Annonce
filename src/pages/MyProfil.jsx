@@ -12,28 +12,33 @@ import {
 import { useAuth } from '../contexts/auth.context';
 import { getUploadedFile } from '../api/offer';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyProfil() {
-    const {user} = useAuth();
-    const [image, setImage] = useState(null);
-    const [pieceIenditite, setPieceIdentite] = useState(null);
 
-    useEffect(() => {
-      console.log(user)
-        getUploadedFile(user.profile_picture)
-        .then(value => {
-            const url = window.URL || window.webkitURL;
-            const blobUrl = url.createObjectURL(value);
-            setImage(blobUrl)
-        })
-        getUploadedFile(user.identifical_file)
-        .then(value => {
-            const url = window.URL || window.webkitURL;
-            const blobUrl = url.createObjectURL(value);
-            setPieceIdentite(blobUrl)
-        })}
-        
-    , [user])
+  const navigate = useNavigate();
+  const {user} = useAuth();
+  const [image, setImage] = useState(null);
+  const [pieceIenditite, setPieceIdentite] = useState(null);
+
+  useEffect(() => {
+      getUploadedFile(user.profile_picture)
+      .then(value => {
+          const url = window.URL || window.webkitURL;
+          const blobUrl = url.createObjectURL(value);
+          setImage(blobUrl)
+      })
+      getUploadedFile(user.identifical_file)
+      .then(value => {
+          const url = window.URL || window.webkitURL;
+          const blobUrl = url.createObjectURL(value);
+          setPieceIdentite(blobUrl)
+      })}
+      
+  , [user])
+
+
+
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
@@ -54,7 +59,7 @@ export default function MyProfil() {
                   style={{ width: '50px' }}
                   fluid /><hr/>
                 <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Modifier Profil</MDBBtn>
+                  <MDBBtn onClick={() => navigate('/updateProfil')} >Modifier Profil</MDBBtn>
                 </div>
               </MDBCardBody>
             </MDBCard>

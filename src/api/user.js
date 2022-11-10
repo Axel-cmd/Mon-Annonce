@@ -68,7 +68,7 @@ export const getUserById = (id) => {
 export const putUserById = ({id, data}) => {
     return new Promise((resolve, reject) => {
         const headers = getAuthHeader();
-        request.post(`/user/${id}`, data, {headers})
+        request.put(`/user/${id}`, data, {headers})
             .then(res => resolve(res.data))
             .catch(err => reject(err))
     })

@@ -14,6 +14,7 @@ import ProductDetail from './pages/ProductDetail';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Profil from './pages/Profil';
+import UpdateProfil from './pages/UpdateProfil';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
 
               {/* routes protégés */}
               <Route path='myProfil' element={<RequireAuth> <MyProfil /></RequireAuth>} />
+              <Route path='updateProfil' element={<RequireAuth><UpdateProfil /></RequireAuth>}  /> 
               <Route path='addProduct' element={<RequireAuth><AddProduct /></RequireAuth>} />
 
             </Route>

@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { getUploadedFile } from "../api/offer";
 import FormInput from "../components/FormInput";
 import FormInputFile from "../components/FormInputFile";
 
@@ -51,11 +52,31 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
         setValidated(true)
     }
 
+
+    const getFile = (file) => {
+        return new Promise((resolve, reject) => {
+            getUploadedFile(file)
+                .then(value => {
+                    const url = window.URL || window.webkitURL;
+                    const blobUrl = url.createObjectURL(value);
+                    resolve(blobUrl);
+                })
+        })
+    }
+
+
     useEffect(() => {
         // modifier la valeur des state par défaut 
+        console.log(defaultValue);
+        setAddress(defaultValue.address);
+        setCity(defaultValue.city);
+        setCountry(defaultValue.country);
+        setEmail(defaultValue.email);
+        setFirstName(defaultValue.firstname);
+        setLastName(defaultValue.lastname);
+        setPhone(defaultValue.phone);
+        setZipCode(defaultValue.zip_code)
 
-
-        
     }, [defaultValue])
 
     return (
@@ -67,7 +88,8 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
             </Row>
             <Row className="mb-3">
                 <FormInput as={Col} md="6" label="Adresse mail" type="email" placeholder="example@mail.com" value={email} onChange={setEmail} error="Veuillez entrer une adresse email valide" />
-                <FormInput as={Col} md="6" label="Mot de passe" type="password" placeholder="Mot de passe" value={password} onChange={setPassword} error="Veuillez entrer un mot de passe" />
+                {!defaultValue && (
+                    <FormInput as={Col} md="6" label="Mot de passe" type="password" placeholder="Mot de passe" value={password} onChange={setPassword} error="Veuillez entrer un mot de passe" />)}
             </Row> 
 
             <Row className="mb-3">
@@ -79,12 +101,12 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
                 <FormInput as={Col} md="4" label="Ville" type="text" placeholder="Paris" value={city} onChange={setCity} error="Veuillez entrer votre ville" />
                 <FormInput as={Col} md="4" label="Code postal" type="text" placeholder="75000" value={zipCode} onChange={setZipCode} error="Veuillez entrer votre code postal" />
             </Row>
-
+            {!defaultValue && (
             <Row className="mb-3">
                 <FormInputFile as={Col} md="6" label="Photo de profil" type="file" onChange={setProfilPicture} error="Veuillez sélectionner une photo de profil"  />
                 <FormInputFile as={Col} md="6" label="Carte d'identité" type="file" onChange={setIdentificalFile} error="Veuillez insérer votre pièce d'identité"  />
             </Row>
-
+            )}
             <Button className="mt-5" style={{width: "100%"}} type="submit">{action}</Button>
         </Form>
     )
