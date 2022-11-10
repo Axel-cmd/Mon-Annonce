@@ -47,3 +47,16 @@ export const getPublicOfferByUserId = (id) => {
             .catch(err => reject(err))
     })
 }
+
+export const addOffer = (data) => {
+    return new Promise((resolve, reject) => {
+        const headers = {
+            "Content-Type": "multipart/form-data"
+        }
+        request.post('/admin_offer/', data, {headers})
+            .then(res => {
+                resolve(res.data)
+            })
+            .catch(err => reject(err))
+    })
+}

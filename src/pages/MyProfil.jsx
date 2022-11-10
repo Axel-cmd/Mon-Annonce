@@ -21,24 +21,22 @@ export default function MyProfil() {
   const [image, setImage] = useState(null);
   const [pieceIenditite, setPieceIdentite] = useState(null);
 
-  useEffect(() => {
-      getUploadedFile(user.profile_picture)
-      .then(value => {
-          const url = window.URL || window.webkitURL;
-          const blobUrl = url.createObjectURL(value);
-          setImage(blobUrl)
-      })
-      getUploadedFile(user.identifical_file)
-      .then(value => {
-          const url = window.URL || window.webkitURL;
-          const blobUrl = url.createObjectURL(value);
-          setPieceIdentite(blobUrl)
-      })}
-      
-  , [user])
-
-
-
+    useEffect(() => {
+      console.log(user)
+        getUploadedFile(user.profile_picture)
+        .then(value => {
+            const url = window.URL || window.webkitURL;
+            const blobUrl = url.createObjectURL(value);
+            setImage(blobUrl)
+        })
+        getUploadedFile(user.identifical_file)
+        .then(value => {
+            const url = window.URL || window.webkitURL;
+            const blobUrl = url.createObjectURL(value);
+            setPieceIdentite(blobUrl)
+        })}
+        
+    , [user])
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
@@ -60,6 +58,9 @@ export default function MyProfil() {
                   fluid /><hr/>
                 <div className="d-flex justify-content-center mb-2">
                   <MDBBtn onClick={() => navigate('/updateProfil')} >Modifier Profil</MDBBtn>
+                </div>
+                <div className="d-flex justify-content-center mb-2">
+                  <MDBBtn variant="primary" onClick={() => navigate('/addProduct')} >Add Product</MDBBtn>
                 </div>
               </MDBCardBody>
             </MDBCard>
