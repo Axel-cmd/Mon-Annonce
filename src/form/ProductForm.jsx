@@ -62,14 +62,16 @@ import FormInputFile from "../components/FormInputFile";
                     <FormInput label="Price" type="price" placeholder="Price" value={price} onChange={setPrice} error="Write down the price" />
                     <label htmlFor="category">Category</label>
                     <Form.Select aria-label="Select Category">
- 
                         <option value="REAL_ESTATE">Immobilier</option>
                         <option value="IT">High-tech</option>
+                        <option value="AUTOMATION">Domotique</option>
                         <option value="HOME_FURNISHINGS">Mobilier de maison</option>
+                        <option value="OTHER_FURNITURE">Autres mobilies</option>
+                        <option value="CLOTHES">Vêtements</option>
+                        <option value="OTHERS">Autres</option>
                     </Form.Select>
                     <label htmlFor="status">Status</label>
                     <Form.Select aria-label="Select Status">
-   
                         <option value="1">Brouillon</option>
                         <option value="2">Publié</option>
                         <option value="3">Supprimé</option>
