@@ -8,13 +8,13 @@ import FormInputFile from "../components/FormInputFile";
  const AddProduct = ({ product, create, onSubmit }) => {
 
     // const navigate = useNavigate();
-    const [setValidated] = useState(false);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [category, setCategory] = useState('');
     const [status_id, setStatus] = useState('');
     const [productPicture, setProductPicture] = useState('');
+
 
     useEffect(() => {
         if (product){
@@ -46,9 +46,7 @@ import FormInputFile from "../components/FormInputFile";
                 productPicture
             })
         }
-        
-
-        setValidated(true)
+        // console.log("hello !!", category);
     }
 
     return (
