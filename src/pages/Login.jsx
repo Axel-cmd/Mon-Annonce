@@ -27,7 +27,7 @@ const Login = () => {
             login({email, password})
                 .then(result => {
                     setWrongCrendentials(false);
-                    navigate('/myProfil')
+                    navigate('/')
                 } )
                 .catch(err => {
                     if(err.response.status === 400) {

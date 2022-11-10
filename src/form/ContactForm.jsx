@@ -20,11 +20,9 @@ const ContactForm = () => {
             event.stopPropagation();
         }else {
             // envoyer les données du formulaire dans la callback passé en props 
-            
             console.log(email, message);
             setEmail('');
             setMessage('');
-            
         }
         
         setValidated(true)

@@ -10,7 +10,6 @@ const UserForm = ({ action, onSubmit, defaultValue }) => {
 
     const [validated, setValidated] = useState(false);
 
-
     const [firstname, setFirstName] = useState('');
     const [lastname, setLastName] = useState('');
     const [phone, setPhone] = useState('');

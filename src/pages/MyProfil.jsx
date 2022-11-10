@@ -8,13 +8,6 @@ import {
   MDBCardBody,
   MDBCardImage,
   MDBBtn,
-  MDBBreadcrumb,
-  MDBBreadcrumbItem,
-  MDBProgress,
-  MDBProgressBar,
-  MDBIcon,
-  MDBListGroup,
-  MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import { useAuth } from '../contexts/auth.context';
 import { getUploadedFile } from '../api/offer';
@@ -26,6 +19,7 @@ export default function MyProfil() {
     const [pieceIenditite, setPieceIdentite] = useState(null);
 
     useEffect(() => {
+      console.log(user)
         getUploadedFile(user.profile_picture)
         .then(value => {
             const url = window.URL || window.webkitURL;
@@ -39,7 +33,7 @@ export default function MyProfil() {
             setPieceIdentite(blobUrl)
         })}
         
-    )
+    , [user])
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
@@ -48,13 +42,13 @@ export default function MyProfil() {
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
               <MDBCardImage
-                  src={image}
+                  src={image ?? ""}
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: '50px' }}
                   fluid /><hr/>
                 <MDBCardImage
-                  src={pieceIenditite}
+                  src={pieceIenditite ?? ""}
                   alt="avatar"
                   className="rounded-circle"
                   style={{ width: '50px' }}
@@ -73,7 +67,7 @@ export default function MyProfil() {
                     <MDBCardText>Firstname</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.firstname}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.firstname : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -82,7 +76,7 @@ export default function MyProfil() {
                     <MDBCardText>Lastname</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.lastname}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.lastname :""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -91,7 +85,7 @@ export default function MyProfil() {
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.email}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.email : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -100,7 +94,7 @@ export default function MyProfil() {
                     <MDBCardText>Téléphone</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.phone}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.phone : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -109,7 +103,7 @@ export default function MyProfil() {
                     <MDBCardText>Adresse Postale</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.address}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.address : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -118,7 +112,7 @@ export default function MyProfil() {
                     <MDBCardText>Code Postale</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.zip_code}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.zip_code : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -127,7 +121,7 @@ export default function MyProfil() {
                     <MDBCardText>Ville</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.city}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.city : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -136,7 +130,7 @@ export default function MyProfil() {
                     <MDBCardText>Pays</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">{user.country}</MDBCardText>
+                    <MDBCardText className="text-muted">{user ?user.country : ""}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>

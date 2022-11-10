@@ -33,7 +33,6 @@ const ProductDetail = () => {
             })
     }, [product])
 
-    const handleGoBack = useCallback(() => navigate(-1))
 
     return (
         <Container className="mt-5 pt-3">
@@ -48,8 +47,12 @@ const ProductDetail = () => {
             <Row>
 
                 <Col md="8" sm="8" lg="10" >
-                    <p className="mt-4" >{product ? product.description : ""}</p>
-                    <p style={{width: "100%", textAlign: "right"}} ><span style={{fontSize: "3rem"}} >{product ? product.price : ""}</span>€</p>
+                    <div style={{display: "flex", flexDirection: "row", height: "100%", justifyContent: "space-evenly", alignItems: "center"}} >
+
+                        <p className="mt-4" >{product ? product.description : ""}</p>
+                        <p  ><span style={{fontSize: "3rem"}} >{product ? product.price : ""}</span>€</p>
+
+                    </div>
                 
                 </Col>
                 <Col>
@@ -61,10 +64,10 @@ const ProductDetail = () => {
                                     <Image roundedCircle="true" style={{width: "50px", height: "50px"}} src="https://via.placeholder.com/150" />
                                 </div>
 
-                                <Card.Title className="mb-5" >{product.Author.lastname}<br /> {product.Author.firstname}</Card.Title>
+                                <Card.Title className="mb-5" >{product ? product.Author.lastname : ""}<br /> {product ? product.Author.firstname : ""}</Card.Title>
 
                                 {/* direction vers le profil public de l'utilisateur  */}
-                                <Button variant="primary" onClick={() => navigate(`/profil/${product.Author.id}`)} >Voir le profil</Button>
+                                <Button variant="primary" onClick={() => navigate(`/profil/${product ? product.Author.id : ""}`)} >Voir le profil</Button>
 
                             </Card.Body>
                         </Card>
